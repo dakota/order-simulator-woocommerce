@@ -242,9 +242,9 @@ PRIMARY KEY  (number)
                     update_post_meta( $order_id, '_'.$key, $value );
                 }
 
-                do_action( 'woocommerce_checkout_order_processed', $order_id, $data );
-
                 $order = new WC_Order($order_id);
+             
+                do_action( 'woocommerce_checkout_order_processed', $order_id, $data, $order );
 
                 // figure out the order status
                 $status = 'completed';
